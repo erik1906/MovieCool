@@ -1,0 +1,2 @@
+rootProject.name='MovieCool'
+include ':app'
