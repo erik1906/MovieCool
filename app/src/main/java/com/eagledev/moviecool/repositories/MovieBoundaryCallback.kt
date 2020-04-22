@@ -39,7 +39,7 @@ class MovieBoundaryCallback constructor(
         coroutineScope.launch(Dispatchers.IO) {
             val response = movieDb4Api.getRecommendations(
                 accountId = appSharedPreferences.getSharedPreferences("accountId"),
-                accessToken = "Baerer ${appSharedPreferences.getSharedPreferences("accessToken")}",
+                accessToken = "Bearer ${appSharedPreferences.getSharedPreferences("accessToken")}",
                 page = currentPage)
 
             if(response.isSuccessful){

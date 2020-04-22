@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.eagledev.moviecool.R
 import com.eagledev.moviecool.model.Movie
+import kotlinx.android.synthetic.main.movie_card.view.*
 
 class MovieAdapter( private val listener: (Movie)->Unit): PagedListAdapter<Movie, RecyclerView.ViewHolder>(MOVIE_COMPARATOR){
 
@@ -47,6 +48,7 @@ class MovieAdapter( private val listener: (Movie)->Unit): PagedListAdapter<Movie
             mov?.let{movie ->
                 this.movie = movie
 
+                view.tv_movie_name.text = movie.originalTitle
                 view.setOnClickListener {
                     listener(movie)
                 }
