@@ -14,7 +14,8 @@ import com.eagledev.moviecool.MovieCool
         AppModule::class,
         ActivityModule::class,
         ViewModelModule::class,
-        NetworkModule::class
+        NetworkModule::class,
+        RoomModule::class
     ]
 )
 interface AppComponent {
