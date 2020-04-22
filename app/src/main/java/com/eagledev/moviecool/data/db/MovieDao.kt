@@ -16,4 +16,9 @@ abstract class MovieDao {
     @Query("SELECT * FROM movie")
     abstract fun getRecommendedMovies(): DataSource.Factory<Int, Movie>
 
+    @Query("SELECT * FROM movie WHERE favorite == 1")
+    abstract fun getFavoritesMovies(): DataSource.Factory<Int, Movie>
+
+    @Query("SELECT * FROM movie WHERE rated == 1")
+    abstract fun getRatedMovies(): DataSource.Factory<Int, Movie>
 }

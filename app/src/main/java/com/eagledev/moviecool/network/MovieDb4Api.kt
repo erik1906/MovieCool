@@ -18,5 +18,11 @@ interface MovieDb4Api {
     @GET("account/{account_id}/movie/recommendations")
     suspend fun getRecommendations(@Path("account_id") accountId: String, @Header("Authorization") accessToken: String, @Query("page") page: Int): Response<ListResponse>
 
+    @GET("account/{account_id}/movie/favorites")
+    suspend fun getFavorites(@Path("account_id") accountId: String, @Header("Authorization") accessToken: String, @Query("page") page: Int): Response<ListResponse>
+
+    @GET("account/{account_id}/movie/rated")
+    suspend fun getRated(@Path("account_id") accountId: String, @Header("Authorization") accessToken: String, @Query("page") page: Int): Response<ListResponse>
+
 
 }

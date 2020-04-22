@@ -38,7 +38,7 @@ data class Movie(
     @SerializedName("release_date")
     val releaseDate: String? = "",
     @SerializedName("favorite")
-    val favorite: Boolean? = false,
+    var favorite: Boolean? = false,
     @SerializedName("rated")
-    val rated: Boolean? = false
+    var rated: Boolean? = false
 )

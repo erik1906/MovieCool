@@ -15,7 +15,9 @@ import com.eagledev.moviecool.R
 import com.eagledev.moviecool.utils.ViewModelFactory
 import com.eagledev.moviecool.data.Result
 import com.eagledev.moviecool.di.Injectable
+import com.eagledev.moviecool.ui.adpters.MovieAdapter
 import kotlinx.android.synthetic.main.log_in_fragment.*
+import kotlinx.android.synthetic.main.movies_fragment.*
 import timber.log.Timber
 
 import javax.inject.Inject
@@ -26,6 +28,8 @@ class RatedFragment : Fragment(), Injectable {
     lateinit var viewModelFactory: ViewModelFactory
 
     private lateinit var viewModel: RatedViewModel
+
+    private var adapter: MovieAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,5 +43,15 @@ class RatedFragment : Fragment(), Injectable {
 
         viewModel = ViewModelProvider( this, viewModelFactory).get(RatedViewModel::class.java)
 
+        initAdapter()
+        viewModel.getMoviesRated()
+    }
+
+    private fun initAdapter(){
+        adapter = MovieAdapter {  }
+        viewModel.movieList.observe(viewLifecycleOwner, Observer {
+            adapter?.submitList(it)
+        })
+        rv_movies.adapter = adapter
     }
 }
