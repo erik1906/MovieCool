@@ -10,6 +10,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 
 import com.eagledev.moviecool.R
 import com.eagledev.moviecool.utils.ViewModelFactory
@@ -48,7 +49,10 @@ class FavoritesFragment : Fragment(), Injectable {
     }
 
     private fun initAdapter(){
-        adapter = MovieAdapter {  }
+        adapter = MovieAdapter {
+            val destination = FavoritesFragmentDirections.actionFavoritesFragmentToDetailFragment(it)
+            findNavController().navigate(destination)
+        }
         viewModel.movieList.observe(viewLifecycleOwner, Observer {
             adapter?.submitList(it)
         })

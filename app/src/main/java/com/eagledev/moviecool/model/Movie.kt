@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.TypeConverters
 import com.eagledev.moviecool.data.db.MovieTypeConverter
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 @TypeConverters(MovieTypeConverter::class)
@@ -41,4 +42,4 @@ data class Movie(
     var favorite: Boolean? = false,
     @SerializedName("rated")
     var rated: Boolean? = false
-)
+): Serializable

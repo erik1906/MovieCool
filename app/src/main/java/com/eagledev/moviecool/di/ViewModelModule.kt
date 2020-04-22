@@ -2,11 +2,8 @@ package com.eagledev.moviecool.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.eagledev.moviecool.ui.FavoritesViewModel
+import com.eagledev.moviecool.ui.*
 import com.eagledev.moviecool.utils.ViewModelFactory
-import com.eagledev.moviecool.ui.LogInViewModel
-import com.eagledev.moviecool.ui.RatedViewModel
-import com.eagledev.moviecool.ui.RecommendationsViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -39,4 +36,8 @@ abstract class ViewModelModule {
    @ViewModelKey(FavoritesViewModel::class)
    abstract fun bindFavoritesViewModel (viewModelClass: FavoritesViewModel): ViewModel
 
+   @Binds
+   @IntoMap
+   @ViewModelKey(DetailViewModel::class)
+   abstract fun bindDetailViewModel (viewModelClass: DetailViewModel): ViewModel
 }

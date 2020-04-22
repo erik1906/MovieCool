@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.eagledev.moviecool.R
 import com.eagledev.moviecool.model.Movie
 import kotlinx.android.synthetic.main.movie_card.view.*
@@ -47,6 +48,17 @@ class MovieAdapter( private val listener: (Movie)->Unit): PagedListAdapter<Movie
         fun bind(mov: Movie?, listener: (Movie) -> Unit){
             mov?.let{movie ->
                 this.movie = movie
+
+                Glide.with(view).load("https://image.tmdb.org/t/p/w500${movie.posterPath}").into(view.imageView)
+
+                val fav = movie.favorite
+                if(fav != null && fav){
+                    view.iv_fav.setImageDrawable(view.context.getDrawable(R.drawable.fav_star))
+                }else{
+                    view.iv_fav.setImageDrawable(view.context.getDrawable(R.drawable.star))
+                }
+
+                view.tv_rate.text = movie.voteAverage.toString()
 
                 view.tv_movie_name.text = movie.originalTitle
                 view.setOnClickListener {

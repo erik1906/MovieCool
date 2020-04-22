@@ -1,9 +1,6 @@
 package com.eagledev.moviecool.di
 
-import com.eagledev.moviecool.ui.FavoritesFragment
-import com.eagledev.moviecool.ui.LogInFragment
-import com.eagledev.moviecool.ui.RatedFragment
-import com.eagledev.moviecool.ui.RecommendationsFragment
+import com.eagledev.moviecool.ui.*
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -22,4 +19,6 @@ abstract class FragmentModule {
     @ContributesAndroidInjector
     abstract fun contributeRatedFragment(): RatedFragment
 
+    @ContributesAndroidInjector
+    abstract fun contributeDetailFragment(): DetailFragment
 }

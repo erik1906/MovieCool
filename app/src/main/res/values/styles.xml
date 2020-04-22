@@ -8,6 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ToolBarTheme" parent="AppTheme">
+        <item name="android:textColorPrimary">@android:color/white</item>
+    </style>
+
     <style name="h1">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@android:color/black</item>
@@ -15,8 +19,17 @@
 
     <style name="h2">
         <item name="android:textSize">15sp</item>
-        <item name="android:textColor">@color/secondaryText</item>
+        <item name="android:textColor">@color/primaryText</item>
     </style>
 
+    <style name="h3">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/primaryText</item>
+    </style>
+
+    <style name="h3light">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/secondaryText</item>
+    </style>
 
 </resources>
