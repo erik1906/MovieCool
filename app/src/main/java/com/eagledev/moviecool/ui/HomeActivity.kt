@@ -1,8 +1,10 @@
 package com.eagledev.moviecool.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
@@ -15,6 +17,7 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import kotlinx.android.synthetic.main.activity_home.*
 import javax.inject.Inject
+
 
 class HomeActivity : AppCompatActivity(), HasAndroidInjector, Injectable {
 
@@ -57,4 +60,19 @@ class HomeActivity : AppCompatActivity(), HasAndroidInjector, Injectable {
         return currentNavController?.value?.navigateUp() ?: false
     }
     override fun androidInjector() = dispatchingAndroidInjector
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.search->{
+                currentNavController?.value?.navigate("app://moviecool/search".toUri())
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }

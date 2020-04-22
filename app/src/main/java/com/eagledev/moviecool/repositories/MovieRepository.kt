@@ -63,4 +63,18 @@ class MovieRepository @Inject constructor(private val movieDb4Api: MovieDb4Api, 
             .setBoundaryCallback(movieRatedBoundaryCallback)
             .build()
     }
+
+    /**
+     * Search a movie in the db
+     * @param coroutineScope The scope to bind [viewModelScope] with the request
+     */
+    fun searchMovie(filter: String, coroutineScope: CoroutineScope): LiveData<PagedList<Movie>>{
+
+        val filerFormat = "%$filter%"
+        val data = movieDao.searchMovie(filerFormat)
+
+
+        return LivePagedListBuilder(data, 1)
+            .build()
+    }
 }

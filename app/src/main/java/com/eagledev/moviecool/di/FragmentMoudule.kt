@@ -21,4 +21,7 @@ abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract fun contributeDetailFragment(): DetailFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeSearchFragment(): SearchFragment
 }

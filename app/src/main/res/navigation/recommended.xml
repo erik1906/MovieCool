@@ -22,4 +22,17 @@
             android:name="movie"
             app:argType="com.eagledev.moviecool.model.Movie" />
     </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.eagledev.moviecool.ui.SearchFragment"
+        android:label="@android:string/search_go"
+        tools:layout="@layout/search_fragment">
+        <deepLink
+            android:id="@+id/deepLink"
+            android:autoVerify="true"
+            app:uri="app://moviecool/search" />
+        <action
+            android:id="@+id/action_searchFragment_to_detailFragment3"
+            app:destination="@id/detailFragment3" />
+    </fragment>
 </navigation>

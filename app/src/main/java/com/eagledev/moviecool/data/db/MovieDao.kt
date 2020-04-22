@@ -21,4 +21,7 @@ abstract class MovieDao {
 
     @Query("SELECT * FROM movie WHERE rated == 1")
     abstract fun getRatedMovies(): DataSource.Factory<Int, Movie>
+
+    @Query("SELECT * FROM movie WHERE title like :filter")
+    abstract fun searchMovie(filter: String): DataSource.Factory<Int, Movie>
 }

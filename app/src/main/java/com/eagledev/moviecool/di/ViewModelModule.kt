@@ -40,4 +40,9 @@ abstract class ViewModelModule {
    @IntoMap
    @ViewModelKey(DetailViewModel::class)
    abstract fun bindDetailViewModel (viewModelClass: DetailViewModel): ViewModel
+   
+   @Binds
+   @IntoMap
+   @ViewModelKey(SearchViewModel::class)
+   abstract fun bindSearchViewModel (viewModelClass: SearchViewModel): ViewModel
 }
