@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.eagledev.moviecool.R
 import com.eagledev.moviecool.model.Movie
 
 class MovieAdapter( private val listener: (Movie)->Unit): PagedListAdapter<Movie, RecyclerView.ViewHolder>(MOVIE_COMPARATOR){
@@ -36,18 +37,18 @@ class MovieAdapter( private val listener: (Movie)->Unit): PagedListAdapter<Movie
     class MovieViewHolder(private val view: View): RecyclerView.ViewHolder(view){
         companion object{
             fun create(parent: ViewGroup): MovieViewHolder{
-                val view = LayoutInflater.from(parent.context).inflate(,parent,false)
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.movie_card,parent,false)
                 return MovieViewHolder(view)
             }
         }
         var movie: Movie? = null
 
-        fun bind(movie: Movie?, listener: (Movie) -> Unit){
-            movie?.let{
+        fun bind(mov: Movie?, listener: (Movie) -> Unit){
+            mov?.let{movie ->
                 this.movie = movie
 
                 view.setOnClickListener {
-                    listener(it)
+                    listener(movie)
                 }
             }
         }

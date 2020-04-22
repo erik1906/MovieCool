@@ -8,4 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="h1">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="h2">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/secondaryText</item>
+    </style>
+
+
 </resources>

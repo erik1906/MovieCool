@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/recommended"
+        android:icon="@drawable/ticket"
+        android:title="Recommended" />
+    <item
+        android:id="@+id/favorites"
+        android:icon="@drawable/star"
+        android:title=  "Favorites" />
+    <item
+        android:id="@+id/rated"
+        android:icon="@drawable/like"
+        android:title="Rated" />
+</menu>
