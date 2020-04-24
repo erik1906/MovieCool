@@ -56,8 +56,31 @@ class SearchFragment : Fragment(), Injectable {
 
     private fun initAdapter(){
         adapter = MovieAdapter {
-            val destination = FavoritesFragmentDirections.actionFavoritesFragmentToDetailFragment(it)
-            findNavController().navigate(destination)
+
+
+            val bundle = Bundle()
+            bundle.putSerializable("movie", it)
+
+            when(findNavController().graph.id ){
+                R.id.rated -> {
+
+                    findNavController().navigate(R.id.action_searchFragment2_to_detailFragment2, bundle)
+
+                }
+
+                R.id.favorites -> {
+
+                    findNavController().navigate(R.id.action_searchFragment3_to_detailFragment, bundle)
+
+                }
+                R.id.recommended -> {
+
+                    findNavController().navigate(R.id.action_searchFragment_to_detailFragment3, bundle)
+
+                }
+            }
+
+
         }
         viewModel.movieList.observe(viewLifecycleOwner, Observer {
             adapter?.submitList(it)

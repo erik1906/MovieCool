@@ -79,6 +79,7 @@ class AuthenticationRepository @Inject constructor(private val movieDb4Api: Movi
                         v3Res.body()?.let{sessionV3 ->
                             appSharedPreferences.putSharedPreference("sessionId", sessionV3.sessionId)
                             Timber.tag("Ids").d("Access : ${it.accessToken}  AccountId: ${it.accountId}  SessionId: ${sessionV3.sessionId}")
+                            appSharedPreferences.isLogin(true)
                             _accessTokenStatus.postValue(Result.Success(true))
                         }
                     }

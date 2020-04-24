@@ -34,5 +34,6 @@
         <action
             android:id="@+id/action_searchFragment_to_detailFragment3"
             app:destination="@id/detailFragment3" />
+
     </fragment>
 </navigation>

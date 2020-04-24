@@ -11,7 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import javax.inject.Inject
 
 /**
- * Handle the data for the movies
+ * Handle the movie lists requests
  */
 class MovieRepository @Inject constructor(private val movieDb4Api: MovieDb4Api, private val movieDao: MovieDao, private val appSharedPreferences: AppSharedPreferences) {
 

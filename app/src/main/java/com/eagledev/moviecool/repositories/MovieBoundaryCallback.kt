@@ -44,7 +44,11 @@ class MovieBoundaryCallback constructor(
 
             if(response.isSuccessful){
                 response.body()?.let{
-                    movieDao.insertMovie(it.movies)
+                    movieDao.insertMovie(it.movies.map { movie->
+                        movie.favorite = false
+                        movie.rated = false
+                        movie
+                    })
                     currentPage += PAGE_SIZE
                     isRequestInProgress = false
                 }

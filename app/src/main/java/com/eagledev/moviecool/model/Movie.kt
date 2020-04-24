@@ -19,7 +19,7 @@ data class Movie(
     @SerializedName("poster_path")
     val posterPath: String? = "",
     @SerializedName("id")
-    val id: Int? = 0,
+    val id: Int = 0,
     @SerializedName("adult")
     val adult: Boolean? = false,
     @SerializedName("backdrop_path")
@@ -39,7 +39,7 @@ data class Movie(
     @SerializedName("release_date")
     val releaseDate: String? = "",
     @SerializedName("favorite")
-    var favorite: Boolean? = false,
+    var favorite: Boolean = false,
     @SerializedName("rated")
-    var rated: Boolean? = false
+    var rated: Boolean = false
 ): Serializable

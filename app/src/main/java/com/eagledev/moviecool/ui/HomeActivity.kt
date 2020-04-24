@@ -28,6 +28,7 @@ class HomeActivity : AppCompatActivity(), HasAndroidInjector, Injectable {
 
     private var currentNavController: LiveData<NavController>? = null
 
+    var search = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -71,6 +72,7 @@ class HomeActivity : AppCompatActivity(), HasAndroidInjector, Injectable {
         when(item.itemId){
             R.id.search->{
                 currentNavController?.value?.navigate("app://moviecool/search".toUri())
+
             }
         }
         return super.onOptionsItemSelected(item)
