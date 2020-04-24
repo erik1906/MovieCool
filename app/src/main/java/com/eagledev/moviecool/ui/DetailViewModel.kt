@@ -6,15 +6,24 @@ import androidx.lifecycle.viewModelScope
 import com.eagledev.moviecool.repositories.MovieActionsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 class DetailViewModel @Inject constructor(private  val movieActionsRepository: MovieActionsRepository) : ViewModel() {
 
     val favoriteResponse = Transformations.map(movieActionsRepository.favoriteResponse){it}
 
+    val rateResponse = Transformations.map(movieActionsRepository.rateResponse){it}
+
     fun setFavorite(movieId: Int, isFavorite: Boolean){
         viewModelScope.launch(Dispatchers.IO) {
             movieActionsRepository.setFavorite(movieId, isFavorite)
+        }
+    }
+
+    fun setRating(movieId: Int, rating: Float){
+        viewModelScope.launch(Dispatchers.IO) {
+            movieActionsRepository.setRating(movieId, rating)
         }
     }
 }

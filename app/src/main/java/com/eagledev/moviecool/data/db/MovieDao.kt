@@ -24,4 +24,7 @@ interface MovieDao {
 
     @Query("UPDATE movie SET favorite = :isFavorite WHERE id == :movieId")
     fun updateMovie(movieId: Int, isFavorite: Boolean)
+
+    @Query("UPDATE movie SET rated = 1 WHERE id == :movieId")
+    fun updateRate(movieId: Int)
 }

@@ -1,9 +1,6 @@
 package com.eagledev.moviecool.network
 
-import com.eagledev.moviecool.model.FavoriteRequest
-import com.eagledev.moviecool.model.FavoriteResponse
-import com.eagledev.moviecool.model.SessionV3Request
-import com.eagledev.moviecool.model.SessionV3Response
+import com.eagledev.moviecool.model.*
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -23,5 +20,10 @@ interface MovieDb3Api {
     @POST("account/{account_id}/favorite")
     suspend fun postFavorite(@Path("account_id") accountId: String, @Query("api_key") apiKey: String,
                              @Query("session_id") sessionID: String,
-                             @Body favoriteRequest: FavoriteRequest): Response<FavoriteResponse>
+                             @Body favoriteRequest: FavoriteRequest): Response<SimpleResponse>
+
+    @POST("movie/{movie_id}/rating")
+    suspend fun postRate(@Path("movie_id") movieId: String, @Query("api_key") apiKey: String,
+                             @Query("session_id") sessionID: String,
+                             @Body rateRequest: RateRequest): Response<SimpleResponse>
 }

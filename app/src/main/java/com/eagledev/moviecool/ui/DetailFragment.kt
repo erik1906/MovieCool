@@ -16,11 +16,12 @@ import com.eagledev.moviecool.di.Injectable
 import com.eagledev.moviecool.model.Movie
 import com.eagledev.moviecool.utils.ViewModelFactory
 import kotlinx.android.synthetic.main.detail_fragment.*
+import timber.log.Timber
 import javax.inject.Inject
 
 class DetailFragment : Fragment(), Injectable {
 
-    val args: DetailFragmentArgs by navArgs()
+    private val args: DetailFragmentArgs by navArgs()
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -48,6 +49,11 @@ class DetailFragment : Fragment(), Injectable {
             viewModel.setFavorite(movie.id, !movie.favorite )
         }
 
+        b_rate.setOnClickListener {
+            viewModel.setRating(movie.id, slider_rating.value)
+        }
+
+
         viewModel.favoriteResponse.observe(viewLifecycleOwner, Observer {
              when(it){
                 is Result.Success -> {
@@ -59,6 +65,17 @@ class DetailFragment : Fragment(), Injectable {
                     }else{
                         iv_fav.setImageDrawable(view.context.getDrawable(R.drawable.star))
                     }
+                }
+                is Result.Error -> {}
+                Result.Loading -> {}
+            }
+        })
+
+        viewModel.rateResponse.observe(viewLifecycleOwner, Observer {
+            when(it){
+                is Result.Success -> {
+                    movie.rated = true
+
                 }
                 is Result.Error -> {}
                 Result.Loading -> {}
