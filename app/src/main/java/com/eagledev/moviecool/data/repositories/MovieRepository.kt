@@ -1,4 +1,4 @@
-package com.eagledev.moviecool.repositories
+package com.eagledev.moviecool.data.repositories
 
 import androidx.lifecycle.LiveData
 import androidx.paging.LivePagedListBuilder
@@ -8,6 +8,7 @@ import com.eagledev.moviecool.data.db.MovieDao
 import com.eagledev.moviecool.model.Movie
 import com.eagledev.moviecool.network.MovieDb4Api
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -21,7 +22,7 @@ class MovieRepository @Inject constructor(private val movieDb4Api: MovieDb4Api, 
 
     /**
      * Get a list of movie recommendations
-     * @param coroutineScope The scope to bind [viewModelScope] with the request
+     * @param coroutineScope The scope to bind viewModelScope with the request
      */
      fun getRecommendedMovies(coroutineScope: CoroutineScope): LiveData<PagedList<Movie>>{
 
@@ -36,7 +37,7 @@ class MovieRepository @Inject constructor(private val movieDb4Api: MovieDb4Api, 
 
     /**
      * Get your favorites movies
-     * @param coroutineScope The scope to bind [viewModelScope] with the request
+     * @param coroutineScope The scope to bind viewModelScope]with the request
      */
     fun getFavoritesMovies(coroutineScope: CoroutineScope): LiveData<PagedList<Movie>>{
 
@@ -51,7 +52,7 @@ class MovieRepository @Inject constructor(private val movieDb4Api: MovieDb4Api, 
 
     /**
      * Get the movies that you rate
-     * @param coroutineScope The scope to bind [viewModelScope] with the request
+     * @param coroutineScope The scope to bind viewModelScope with the request
      */
     fun getRatedMovies(coroutineScope: CoroutineScope): LiveData<PagedList<Movie>>{
 
@@ -66,11 +67,11 @@ class MovieRepository @Inject constructor(private val movieDb4Api: MovieDb4Api, 
 
     /**
      * Search a movie in the db
-     * @param coroutineScope The scope to bind [viewModelScope] with the request
      */
-    fun searchMovie(filter: String, coroutineScope: CoroutineScope): LiveData<PagedList<Movie>>{
+    fun searchMovie(filter: String): LiveData<PagedList<Movie>>{
 
         val filerFormat = "%$filter%"
+
         val data = movieDao.searchMovie(filerFormat)
 
 

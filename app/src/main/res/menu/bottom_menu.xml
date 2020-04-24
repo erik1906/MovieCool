@@ -4,13 +4,13 @@
     <item
         android:id="@+id/recommended"
         android:icon="@drawable/ticket"
-        android:title="Recommended" />
+        android:title="@string/recommended" />
     <item
         android:id="@+id/favorites"
         android:icon="@drawable/star"
-        android:title=  "Favorites" />
+        android:title=  "@string/favorites" />
     <item
         android:id="@+id/rated"
         android:icon="@drawable/like"
-        android:title="Rated" />
+        android:title="@string/rated" />
 </menu>

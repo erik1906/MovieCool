@@ -1,4 +1,4 @@
-package com.eagledev.moviecool.repositories
+package com.eagledev.moviecool.data.repositories
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,7 +9,6 @@ import com.eagledev.moviecool.data.db.MovieDao
 import com.eagledev.moviecool.model.FavoriteRequest
 import com.eagledev.moviecool.model.RateRequest
 import com.eagledev.moviecool.network.MovieDb3Api
-import com.eagledev.moviecool.network.MovieDb4Api
 import com.eagledev.moviecool.utils.Event
 import com.eagledev.moviecool.utils.ResourceProvider
 import timber.log.Timber
@@ -32,6 +31,9 @@ class MovieActionsRepository @Inject constructor(private val movieDb3Api: MovieD
     val rateResponse: LiveData<Result<Event<Boolean>>>
         get() = _rateResponse
 
+    /**
+     * Add and remove a movie from favorites
+     */
     suspend fun setFavorite(movieId: Int, isFavorite: Boolean){
 
         _favoriteResponse.postValue(Result.Loading)
@@ -51,6 +53,10 @@ class MovieActionsRepository @Inject constructor(private val movieDb3Api: MovieD
         }
     }
 
+
+    /**
+     * Rate the movie with a value from .5 to 10
+     */
     suspend fun setRating(movieId: Int, rate: Float){
 
         _rateResponse.postValue(Result.Loading)

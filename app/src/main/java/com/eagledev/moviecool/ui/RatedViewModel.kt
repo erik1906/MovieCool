@@ -4,10 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.eagledev.moviecool.repositories.AuthenticationRepository
-import com.eagledev.moviecool.repositories.MovieRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.eagledev.moviecool.data.repositories.MovieRepository
 import javax.inject.Inject
 
 class RatedViewModel @Inject constructor(private val movieRepository: MovieRepository) : ViewModel() {

@@ -1,4 +1,4 @@
-package com.eagledev.moviecool.repositories
+package com.eagledev.moviecool.data.repositories
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

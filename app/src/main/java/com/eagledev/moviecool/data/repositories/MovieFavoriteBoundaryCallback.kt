@@ -1,4 +1,4 @@
-package com.eagledev.moviecool.repositories
+package com.eagledev.moviecool.data.repositories
 
 import androidx.paging.PagedList
 import com.eagledev.moviecool.data.AppSharedPreferences
@@ -9,7 +9,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MovieBoundaryCallback constructor(
+class MovieFavoriteBoundaryCallback constructor(
     private val coroutineScope: CoroutineScope,
     private val movieDb4Api: MovieDb4Api,
     private val movieDao: MovieDao,
@@ -37,18 +37,18 @@ class MovieBoundaryCallback constructor(
         isRequestInProgress = true
 
         coroutineScope.launch(Dispatchers.IO) {
-            val response = movieDb4Api.getRecommendations(
+            val response = movieDb4Api.getFavorites(
                 accountId = appSharedPreferences.getSharedPreferences("accountId"),
                 accessToken = "Bearer ${appSharedPreferences.getSharedPreferences("accessToken")}",
                 page = currentPage)
 
             if(response.isSuccessful){
                 response.body()?.let{
-                    movieDao.insertMovie(it.movies.map { movie->
-                        movie.favorite = false
-                        movie.rated = false
+                    val favList = it.movies.map { movie ->
+                        movie.favorite = true
                         movie
-                    })
+                    }
+                    movieDao.insertMovie(favList)
                     currentPage += PAGE_SIZE
                     isRequestInProgress = false
                 }

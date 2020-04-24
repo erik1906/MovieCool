@@ -15,7 +15,8 @@
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="@string/poster_content_description" />
 
     <TextView
         android:id="@+id/tv_tittle"
@@ -38,7 +39,8 @@
         android:layout_marginEnd="8dp"
         android:src="@drawable/fav_star"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/favorite" />
 
     <TextView
         android:id="@+id/tv_average"
@@ -68,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Overview"
+        android:text="@string/text_overview"
         app:layout_constraintStart_toStartOf="@+id/iv_poster"
         app:layout_constraintTop_toBottomOf="@+id/tv_tittle" />
 
@@ -92,7 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Vote average:"
+        android:text="@string/vote_average"
         app:layout_constraintStart_toEndOf="@+id/iv_poster"
         app:layout_constraintTop_toTopOf="@+id/iv_poster" />
 
@@ -103,7 +105,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Release date:"
+        android:text="@string/release_date"
         app:layout_constraintStart_toEndOf="@+id/iv_poster"
         app:layout_constraintTop_toBottomOf="@+id/tv_average" />
 
@@ -114,7 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
-        android:text="Rate this movie:"
+        android:text="@string/rate_movie"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_overview" />
 
@@ -137,7 +139,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="Submit rate"
+        android:text="@string/submit_rate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/slider_rating"
         app:layout_constraintTop_toBottomOf="@+id/slider_rating" />

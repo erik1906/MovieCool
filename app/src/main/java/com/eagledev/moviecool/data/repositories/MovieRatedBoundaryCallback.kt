@@ -1,4 +1,4 @@
-package com.eagledev.moviecool.repositories
+package com.eagledev.moviecool.data.repositories
 
 import androidx.paging.PagedList
 import com.eagledev.moviecool.data.AppSharedPreferences

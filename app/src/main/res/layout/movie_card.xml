@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Vote average:"
+        android:text="@string/vote_average"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/tv_movie_name" />
 
@@ -29,7 +29,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="@string/poster_content_description" />
 
     <TextView
         android:id="@+id/tv_movie_name"
@@ -63,6 +64,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_rate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_rate"
-        app:srcCompat="@drawable/star" />
+        app:srcCompat="@drawable/star"
+        android:contentDescription="@string/favorite" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
