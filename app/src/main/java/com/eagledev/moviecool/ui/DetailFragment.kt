@@ -15,6 +15,7 @@ import com.eagledev.moviecool.data.Result
 import com.eagledev.moviecool.di.Injectable
 import com.eagledev.moviecool.model.Movie
 import com.eagledev.moviecool.utils.ViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.detail_fragment.*
 import timber.log.Timber
 import javax.inject.Inject
@@ -62,11 +63,17 @@ class DetailFragment : Fragment(), Injectable {
 
                     if( fav){
                         iv_fav.setImageDrawable(view.context.getDrawable(R.drawable.fav_star))
+                        Snackbar.make(activity!!.findViewById(android.R.id.content), getString(R.string.favorite_add), Snackbar.LENGTH_LONG).show()
+
                     }else{
                         iv_fav.setImageDrawable(view.context.getDrawable(R.drawable.star))
+                        Snackbar.make(activity!!.findViewById(android.R.id.content), getString(R.string.favorites_remove), Snackbar.LENGTH_LONG).show()
+
                     }
                 }
-                is Result.Error -> {}
+                is Result.Error -> {
+                    Snackbar.make(activity!!.findViewById(android.R.id.content), getString(R.string.error_fovorites), Snackbar.LENGTH_LONG).show()
+                }
                 Result.Loading -> {}
             }
         })
@@ -75,9 +82,14 @@ class DetailFragment : Fragment(), Injectable {
             when(it){
                 is Result.Success -> {
                     movie.rated = true
+                    Snackbar.make(activity!!.findViewById(android.R.id.content), getString(R.string.rated_success), Snackbar.LENGTH_LONG).show()
+
 
                 }
-                is Result.Error -> {}
+                is Result.Error -> {
+                    Snackbar.make(activity!!.findViewById(android.R.id.content), getString(R.string.rated_error), Snackbar.LENGTH_LONG).show()
+
+                }
                 Result.Loading -> {}
             }
         })

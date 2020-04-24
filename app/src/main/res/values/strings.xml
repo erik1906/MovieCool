@@ -13,4 +13,9 @@
     <string name="favorites">Favorites</string>
     <string name="rated">Rated</string>
     <string name="search">Search</string>
+    <string name="error_fovorites">Error adding movie to fovorites</string>
+    <string name="favorites_remove">Movie remove from favorites</string>
+    <string name="favorite_add">Movie added to favorite</string>
+    <string name="rated_success">Movie rated</string>
+    <string name="rated_error">Error rating movie</string>
 </resources>
