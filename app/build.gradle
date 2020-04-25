@@ -22,8 +22,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            resValue 'string', "moviedb_api_4", "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhODVlZmI1YzM5NzE0NGUxYzkwOTMyNTU3YzNiYzk2MiIsInN1YiI6IjVlOWIyOWE2MzEwMzI1MDAxYWM3MWM2NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.a8beztK8gUk-dmRnCZPOd1zadUL2mbJW1MU_SewG4_M"
-            resValue 'string', "moviedb_api_3", "a85efb5c397144e1c90932557c3bc962"
         }
         debug {
             resValue 'string', "moviedb_api_4", "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhODVlZmI1YzM5NzE0NGUxYzkwOTMyNTU3YzNiYzk2MiIsInN1YiI6IjVlOWIyOWE2MzEwMzI1MDAxYWM3MWM2NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.a8beztK8gUk-dmRnCZPOd1zadUL2mbJW1MU_SewG4_M"
