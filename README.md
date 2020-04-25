@@ -24,7 +24,7 @@ Se creó una prueba de unidad para MovieRepository revisando que los datos de la
 
 ## Aplicación
 
-Se puede encontrar el apk de la aplicación en el siguiente link[https://drive.google.com/open?id=1AmovnLHxaLJWBxZlYfGOZm2OMM-Obj3U]
+Se puede encontrar el apk de la aplicación en el siguiente [link](https://drive.google.com/open?id=1AmovnLHxaLJWBxZlYfGOZm2OMM-Obj3U)
 
 
 ### Esta aplicación tiene las siguientes capas:
@@ -110,7 +110,7 @@ Las características que deben cumplir para mi son los siguiente:
 
 Esta aplicación sigue la arquitectura Model View ViewModel, esta decisión se tomó analizando lo requerimientos de la aplicación y la facilidad para programar dentro de android. Al tomar en cuenta lo anterior se concluyo que por la forma en que se manejarian los datos(Local y Api) se ajustaba bien a la arquitectura de MVVM ayudado también con un repository pattern.
 
-{Architecture}[https://developer.android.com/topic/libraries/architecture/images/final-architecture.png]
+![Architecture](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
 
 En la parte de android los componente de jetpack ayudan a implementar de una buena manera esta arquitectura como también dar muchas herramientas para proveer el correcto funcionamiento dentro de la aplicación, todo brindandolo de una manera sencilla y rápida de desarrollar.
 
