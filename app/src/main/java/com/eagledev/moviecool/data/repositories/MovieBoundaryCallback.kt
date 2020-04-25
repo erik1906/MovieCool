@@ -44,7 +44,7 @@ class MovieBoundaryCallback constructor(
 
             if(response.isSuccessful){
                 response.body()?.let{
-                    movieDao.insertMovie(it.movies.map { movie->
+                    movieDao.insertMovies(it.movies.map { movie->
                         movie.favorite = false
                         movie.rated = false
                         movie

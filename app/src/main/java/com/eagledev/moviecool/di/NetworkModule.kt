@@ -16,7 +16,6 @@ import javax.inject.Singleton
 @Module
 class NetworkModule{
 
-
     @Provides
     @Singleton
     fun provideMovieDb3(): MovieDb3Api {

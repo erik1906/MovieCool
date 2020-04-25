@@ -48,7 +48,7 @@ class MovieFavoriteBoundaryCallback constructor(
                         movie.favorite = true
                         movie
                     }
-                    movieDao.insertMovie(favList)
+                    movieDao.insertMovies(favList)
                     currentPage += PAGE_SIZE
                     isRequestInProgress = false
                 }

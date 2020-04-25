@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import com.eagledev.moviecool.MovieCool
 import com.eagledev.moviecool.data.AppSharedPreferences
+import com.eagledev.moviecool.data.DefaultAppSharedPreferences
 import com.eagledev.moviecool.utils.ResourceProvider
 
 import dagger.Module
@@ -41,7 +42,8 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideAppSharedPreferences(sharedPreferences: SharedPreferences) =
-        AppSharedPreferences(sharedPreferences)
+    fun provideAppSharedPreferences(sharedPreferences: SharedPreferences) : AppSharedPreferences{
+        return DefaultAppSharedPreferences(sharedPreferences)
+    }
 
 }

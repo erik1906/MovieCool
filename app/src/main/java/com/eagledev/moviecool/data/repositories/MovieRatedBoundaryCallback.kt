@@ -48,7 +48,7 @@ class MovieRatedBoundaryCallback constructor(
                         movie.rated = true
                         movie
                     }
-                    movieDao.insertMovie(ratedList)
+                    movieDao.insertMovies(ratedList)
                     currentPage += PAGE_SIZE
                     isRequestInProgress = false
                 }

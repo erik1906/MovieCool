@@ -8,7 +8,10 @@ import com.eagledev.moviecool.model.Movie
 interface MovieDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-     suspend fun insertMovie(movieList: List<Movie>)
+    suspend fun insertMovies(movieList: List<Movie>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertMovie(movie: Movie)
 
     @Query("SELECT * FROM movie")
     fun getRecommendedMovies(): DataSource.Factory<Int, Movie>
@@ -21,6 +24,9 @@ interface MovieDao {
 
     @Query("SELECT * FROM movie WHERE title like :filter")
     fun searchMovie(filter: String): DataSource.Factory<Int, Movie>
+
+    @Query("SELECT * FROM movie ")
+    fun searchAllMovies(): List<Movie>
 
     @Query("UPDATE movie SET favorite = :isFavorite WHERE id == :movieId")
     fun updateMovie(movieId: Int, isFavorite: Boolean)
