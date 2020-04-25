@@ -23,4 +23,12 @@ class TestSharedPreferences : AppSharedPreferences {
         return  mapPreferences[key] ?: ""
     }
 
+    override fun onBoarding(onBoarding: Boolean) {
+
+    }
+
+    override fun onBoarding(): Boolean {
+        return true
+    }
+
 }

@@ -51,7 +51,6 @@ class AuthenticationRepository @Inject constructor(private val movieDb4Api: Movi
                     appSharedPreferences.putSharedPreference("requestToken", token)
                     _authResponse.postValue(Result.Success("https://www.themoviedb.org/auth/access?request_token=$token"))
                 }
-
             }
         }else{
             _authResponse.postValue(Result.Error(Exception("Error with auth")))
