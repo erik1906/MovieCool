@@ -2,10 +2,7 @@ package com.eagledev.moviecool.network
 
 import com.eagledev.moviecool.model.*
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.POST
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface MovieDb3Api {
 
@@ -26,4 +23,7 @@ interface MovieDb3Api {
     suspend fun postRate(@Path("movie_id") movieId: String, @Query("api_key") apiKey: String,
                              @Query("session_id") sessionID: String,
                              @Body rateRequest: RateRequest): Response<SimpleResponse>
+
+    @GET(Routes.DISCOVER)
+    suspend fun getMoviesDiscover(@Query("api_key") apiKey: String): Response<ListResponse>
 }

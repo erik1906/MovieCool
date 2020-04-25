@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_recommendationsFragment_to_detailFragment3"
             app:destination="@id/detailFragment3" />
+        <action
+            android:id="@+id/action_recommendationsFragment_to_onBoardingFragment"
+            app:destination="@id/onBoardingFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment3"
@@ -36,4 +39,9 @@
             app:destination="@id/detailFragment3" />
 
     </fragment>
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.eagledev.moviecool.ui.OnBoardingFragment"
+        android:label="Select movie"
+        tools:layout="@layout/onboarding_fragment" />
 </navigation>

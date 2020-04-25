@@ -18,4 +18,5 @@
     <string name="favorite_add">Movie added to favorite</string>
     <string name="rated_success">Movie rated</string>
     <string name="rated_error">Error rating movie</string>
+    <string name="text_select_movie">Select a movie you like:</string>
 </resources>

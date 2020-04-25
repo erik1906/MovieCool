@@ -52,7 +52,7 @@ class MovieAdapter( private val listener: (Movie)->Unit): PagedListAdapter<Movie
                 Glide.with(view).load("https://image.tmdb.org/t/p/w500${movie.posterPath}").into(view.imageView)
 
                 val fav = movie.favorite
-                if(fav != null && fav){
+                if(fav){
                     view.iv_fav.setImageDrawable(view.context.getDrawable(R.drawable.fav_star))
                 }else{
                     view.iv_fav.setImageDrawable(view.context.getDrawable(R.drawable.star))

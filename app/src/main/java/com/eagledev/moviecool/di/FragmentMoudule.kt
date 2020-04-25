@@ -24,4 +24,7 @@ abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract fun contributeSearchFragment(): SearchFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeOnBoardingFragment(): OnBoardingFragment
 }
