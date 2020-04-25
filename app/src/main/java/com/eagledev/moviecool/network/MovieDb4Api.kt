@@ -6,13 +6,11 @@ import retrofit2.http.*
 
 interface MovieDb4Api {
 
-    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhODVlZmI1YzM5NzE0NGUxYzkwOTMyNTU3YzNiYzk2MiIsInN1YiI6IjVlOWIyOWE2MzEwMzI1MDAxYWM3MWM2NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.a8beztK8gUk-dmRnCZPOd1zadUL2mbJW1MU_SewG4_M")
     @POST("auth/request_token")
-    suspend fun requestToken(@Body authRequest: AuthRequest): Response<AuthResponse>
+    suspend fun requestToken(@Body authRequest: AuthRequest,  @Header("Authorization") accessToken: String): Response<AuthResponse>
 
-    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhODVlZmI1YzM5NzE0NGUxYzkwOTMyNTU3YzNiYzk2MiIsInN1YiI6IjVlOWIyOWE2MzEwMzI1MDAxYWM3MWM2NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.a8beztK8gUk-dmRnCZPOd1zadUL2mbJW1MU_SewG4_M")
     @POST("auth/access_token")
-    suspend fun requestAccessToken(@Body accessTokenRequest: AccessTokenRequest): Response<AccessTokenResponse>
+    suspend fun requestAccessToken(@Body accessTokenRequest: AccessTokenRequest, @Header("Authorization") accessToken: String): Response<AccessTokenResponse>
 
     @GET("account/{account_id}/movie/recommendations")
     suspend fun getRecommendations(@Path("account_id") accountId: String, @Header("Authorization") accessToken: String, @Query("page") page: Int): Response<ListResponse>

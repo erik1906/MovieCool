@@ -41,7 +41,8 @@ class AuthenticationRepository @Inject constructor(private val movieDb4Api: Movi
 
 
         val response = movieDb4Api.requestToken(
-            AuthRequest(redirectTo = "app://www.moviewcool.com/auth")
+            AuthRequest(redirectTo = "app://www.moviewcool.com/auth"),
+            "Bearer ${resourceProvider.getString(R.string.moviedb_api_4)}"
         )
 
         if(response.isSuccessful){
@@ -64,7 +65,8 @@ class AuthenticationRepository @Inject constructor(private val movieDb4Api: Movi
 
 
         val response = movieDb4Api.requestAccessToken(
-            AccessTokenRequest(appSharedPreferences.getSharedPreferences("requestToken"))
+            AccessTokenRequest(appSharedPreferences.getSharedPreferences("requestToken")),"Bearer ${resourceProvider.getString(R.string.moviedb_api_4)}"
+
         )
 
         if(response.isSuccessful){
